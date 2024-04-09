@@ -11,11 +11,11 @@ pipeline {
             }
         }
 
- //       stage ('Testing Stage') {
+        stage ('Testing Stage') {
 
-//            steps {
-  //              withMaven(maven : 'maven_3.9.0') {
-    //                sh 'mvn test'
+            steps {
+                withMaven(maven : 'maven_3.9.0') {
+                    sh 'mvn test'
                 }
             }
         }
