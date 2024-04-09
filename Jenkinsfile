@@ -2,29 +2,29 @@ pipeline {
     agent any
 
     stages {
-        stage ('Compile Stage') {
-
+        stage('Compile Stage') {
             steps {
-                withMaven(maven : 'maven_3.9.6') {
+                // Use Maven 3.9.6 for compilation
+                withMaven(maven: 'maven_3.9.6') {
                     sh 'mvn clean compile'
                 }
             }
         }
 
-        stage ('Testing Stage') {
-
+        stage('Testing Stage') {
             steps {
-                withMaven(maven : 'maven_3.9.0') {
+                // Use Maven 3.9.0 for testing
+                withMaven(maven: 'maven_3.9.0') {
                     sh 'mvn --version'
                     sh 'mvn test'
                 }
             }
         }
 
-
-        stage ('Deployment Stage') {
+        stage('Deployment Stage') {
             steps {
-                withMaven(maven : 'maven_3.9.5') {
+                // Use Maven 3.9.5 for deployment
+                withMaven(maven: 'maven_3.9.5') {
                     sh 'mvn deploy'
                 }
             }
