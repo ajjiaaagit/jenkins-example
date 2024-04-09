@@ -1,5 +1,5 @@
 pipeline {
-	agent {  label 'jenkins-slave1' }
+	agent {  label 'dev-env' }
 	stages {
 		stage('---clean----'){
 			tools {
@@ -21,7 +21,7 @@ pipeline {
 		}
 		stage('---package---'){
 			tools {
-				maven 'maven_3.8..5'
+				maven 'maven_3.9.5'
 			}
 			
 			steps {
