@@ -1,5 +1,6 @@
 pipeline {
-    agent any
+    agent { label 'dev-env'
+          }
 
     stages {
         stage('Compile Stage') {
@@ -15,7 +16,6 @@ pipeline {
             steps {
                 // Use Maven 3.9.0 for testing
                 withMaven(maven: 'maven_3.9.0') {
-                    sh 'mvn --version'
                     sh 'mvn test'
                 }
             }
